@@ -1,0 +1,40 @@
+[tool.poetry]
+authors = ["Your Name <you@example.com>"]
+description = ""
+name = "project4.network"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+Django = "^4.1.5"
+Pillow = "^9.2.0"
+django-environ = "^0.9.0"
+django-ninja = "^0.20.0"
+orjson = "^3.7.6"
+psycopg2-binary = "^2.9.3"
+python = "^3.10"
+python-magic = "^0.4.27"
+whitenoise = "^6.2.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+django-browser-reload = "^1.6.0"
+django-debug-toolbar = "^3.5.0"
+django-extensions = "^3.1.5"
+django-types = "^0.16.0"
+djlint = "^1.6.0"
+flake8 = "^6.0.0"
+pytest-django = "^4.5.2"
+
+[tool.djlint]
+blank_line_after_tag = "load,extends,include"
+format_attribute_template_tags = true
+ignore = "H031,D018,H030,H017"
+indent = 2
+max_line_length = 120
+preserve_blank_lines = true
+profile = "django"
+use_gitignore = true
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]

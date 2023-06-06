@@ -1,0 +1,13 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+
+{% block scripts %}
+  {{ user_info|json_script:"userInfo" }}
+  <script type="module" src="{% static 'network/index.js' %}"></script>
+  <script type="module" src="{% static 'network/navLinks.js' %}"></script>
+{% endblock scripts %}
+
+{% block body %}
+  <div id="root"></div>
+{% endblock body %}

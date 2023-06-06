@@ -1,0 +1,41 @@
+{
+  "name": "network",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "browserlist": "> 0.5%, last 2 versions, Firefox ESR, not dead",
+  "targets": {
+    "react": {
+      "source": "src/index.js",
+      "distDir": "../static/network"
+    }
+  },
+  "scripts": {
+    "sass-build": "sass scss:frontend --style=compressed && npx postcss static/network/css/style.min.css --replace --use autoprefixer"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "date-fns": "^2.29.3",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "react-icons": "^4.6.0",
+    "react-query": "^3.39.2",
+    "react-router-dom": "^6.4.2",
+    "react-transition-group": "^4.4.5"
+  },
+  "devDependencies": {
+    "parcel": "~2.7.0",
+    "prop-types": "^15.8.1",
+    "buffer": "^6.0.3",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "process": "^0.11.10"
+  }
+}

@@ -1,0 +1,265 @@
+// main.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Mixins
+
+// React CSS Transition Group
+@mixin component-transition {
+  will-change: transform, opacity;
+  &-enter {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transform: translateZ(0); // Fixes scale transition
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  }
+}
+
+// Then add additional custom code here
+:root {
+  --bs-font-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.toast-visible {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+
+  & .toast-body {
+    margin-bottom: 0;
+  }
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.screen-reader-only {
+  position: absolute;
+  left: -99999px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.loading-spinner {
+  animation: loading 0.8s linear infinite;
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: $indigo-500;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.default-transition-group {
+  @include component-transition
+}
+
+.bg-navbar {
+  background-color: $indigo-500;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $purple-100;
+
+  &:hover {
+    color: $white;
+  }
+
+  &.active {
+    color: $white;
+    background-color: $indigo-300;
+  }
+}
+
+.center-form {
+  display: flex;
+  flex-direction: column;
+
+  & > h2 {
+    align-self: center;
+  }
+}
+
+.form-input {
+  font-size: 1.2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+  & h1 {
+    margin-bottom: 0;
+  }
+
+  // Follow button
+  & button {
+    padding: 0.15rem 0.7rem;
+    font-size: 1.25rem;
+    margin-left: 1.5rem;
+  }
+}
+
+.profile-photo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.page-link svg {
+  &.previous {
+    transform: rotate(180deg);
+  }
+
+  polygon {
+    stroke: $primary;
+  }
+
+  &.disabled polygon {
+    stroke: $secondary;
+  }
+}
+
+.round-card {
+  border-radius: 0.5rem;
+}
+
+.post-title {
+  display: flex;
+  align-items: center;
+
+  // Follow Button
+  & button {
+    margin-left: 1rem;
+    padding: 0.15rem 0.7rem;
+  }
+}
+
+.post-owner {
+  font-family: "Rubik", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin-bottom: 0;
+
+  &:hover {
+    transition: color 0.3s ease-out;
+    color: $primary;
+  }
+}
+
+.comment {
+  list-style: none;
+}
+
+.like-form {
+  display: flex;
+  align-items: center;
+
+  .like-btn {
+    border: none;
+    font-size: 1.4rem;
+    background: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: red;
+
+    svg {
+      width: 1em;
+      height: 1em;
+      fill: transparent;
+      stroke-width: 3rem;
+      transition: stroke-width 0.2s ease-in-out, fill 0.3s ease-in-out;
+
+      &:hover {
+        stroke-width: 6rem;
+      }
+
+      &.liked {
+        fill: currentColor;
+      }
+    }
+  }
+}
+
+.edit-btn {
+  max-width: 150px;
+}
+
+
+
+.fixed-textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.show-comments-btn {
+  color: $blue-400;
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:hover {
+    color: $blue-600;
+    text-decoration: underline;
+  }
+}
+
+
+
+.comment-title {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  button {
+    margin-left: 0.7rem;
+  }
+}
+
+
+
+@media screen and (min-width: 576px) {
+  .center-form {
+    max-width: 540px;
+  }
+
+  .container {
+    max-width: 720px;
+  }
+}
